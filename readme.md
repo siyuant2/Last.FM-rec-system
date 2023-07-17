@@ -2,7 +2,7 @@
 
 This repo is for this take home challenge.
 
-This directory contains implementations of  Last.FM Musician recommendation framework for the corresponding dataset. For more information about the data and the EDA analysis, please go to [this google colab folder](https://drive.google.com/drive/folders/1JVDRqrbCSnuqU-103QHXuVDSemmUBzs8?usp=sharing).
+This directory contains implementations of  Last.FM Musician recommendation framework for the corresponding dataset. For more information about the data and the EDA analysis, please go to [this google colab folder](https://drive.google.com/drive/folders/1JVDRqrbCSnuqU-103QHXuVDSemmUBzs8?usp=sharing). For more information of the code and the pipeline, please go to [this git repo](https://github.com/siyuant2/Last.FM-rec-system)
 
 To run the pipeline for training and evaluation on the framework, simply run `python main.py`. See `args.py` for a list of arguments that you can pass.
 
@@ -28,7 +28,7 @@ The output of this pipeline is a saved `.csv`file saved in `result`file with 20 
 
 ### Model and System
 
-Inspired by the paper [DNN for Youtube Recommendations](https://research.google/pubs/pub45530/). The general architecture I used is a classical two stage 'funnel' architecture. and ranked before presenting only a few to users.![funnel](C:\Users\JamesTeng\Desktop\Last.FM rec system - Siyuan Teng\funnel.png)
+Inspired by the paper [DNN for Youtube Recommendations](https://research.google/pubs/pub45530/). The general architecture I used is a classical two stage 'funnel' architecture. and ranked before presenting only a few to users.![funnel](.\Last.FM rec system - Siyuan Teng\funnel.png)
 
 In the candidate generation stage, I mainly use the information from artist(musician)'s history and context. Artist will get tag from users, I made a corpus with the tag values and mapped the tag list of an artist to a 500-dim embedding space. Additionally, I also add other dimensions reflecting the popularity and freshness of the artist to the embedded vector. the vectors of the artists will be stored in an database. I sum up the embeddings of all artists a users listened before and use this  summed embedding find top K candidates based on similarity for recommending purpose later.![candidate generation](C:\Users\JamesTeng\Desktop\Last.FM rec system - Siyuan Teng\candidate generation.png)
 
